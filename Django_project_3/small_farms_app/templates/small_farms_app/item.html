@@ -1,0 +1,29 @@
+<h1>Items</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Item Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <form method="post" action="{% url 'infrastructure_item_view' %}">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Enter an Item">
+                    <button type="submit">Create</button>
+                </form>
+                <ul>
+                    {% for item in items_list %}
+                    <li>
+                        {{ item.name }}<form method="post" action="{% url 'delete_item' item.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
