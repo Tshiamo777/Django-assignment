@@ -18,13 +18,11 @@ def index(request):
 def item_view(request):
     if request.method == 'POST':
         name = request.POST.get('name')
-    # Assuming 'name' is a field in InfrustructureItem
         new_item = InfrustructureItem.objects.create(name=name)
         return redirect('infrastructure_item_view')  # Redirect to the same view after creating
     
     queryset = InfrustructureItem.objects.all()
 
-    # Process the queryset if necessary
     processed_items = queryset  # Placeholder, replace this with your actual processing logic
 
     context = {'items_list': processed_items}
@@ -33,7 +31,6 @@ def item_view(request):
 def type_view(request):
     if request.method == 'POST':
         name = request.POST.get('name')
-    # Assuming 'name' is a field in InfrustructureType
         new_type = InfrustructureType.objects.create(name=name)
         return redirect('infrastructure_type_view')  # Redirect to the same view after creating
 
@@ -47,7 +44,6 @@ def type_view(request):
 def managment_log_view(request):
     if request.method == 'POST':
         condition = request.POST.get('condition')
-        # Assuming 'description' is a field in ManagmentLog
         new_log = ManagmentLog.objects.create(condition=condition)
         return redirect('managment_log_view')  # Redirect to the same view after creating
 
@@ -61,7 +57,6 @@ def managment_log_view(request):
 def log_action_view(request):
     if request.method == 'POST':
         sort_order = request.POST.get('sort_order')
-        # Assuming 'name' is a field in LogAction
         new_action = LogAction.objects.create(sort_order=sort_order)
         return redirect('log_action_view')  # Redirect to the same view after creating
     
