@@ -32,7 +32,7 @@ class ItemView(View):
         return redirect('item_view')
 
 class TypeView(View):
-    template_name = 'small_farms_app/InfrustructureType.html'
+    template_name = 'small_farms_app/InfrastructureType.html'
 
     def get(self, request, *args, **kwargs):
         queryset = InfrustructureType.objects.all()
